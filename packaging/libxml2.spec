@@ -6,6 +6,7 @@ Summary:        Library providing XML and HTML support
 Url:            http://xmlsoft.org/
 Group:          System/Libraries
 Source:         ftp://xmlsoft.org/libxml2/libxml2-%{version}.tar.gz
+Source1001: packaging/libxml2.manifest 
 BuildRequires:  python-devel
 BuildRequires:  python
 BuildRequires:  python-xml
@@ -56,6 +57,7 @@ supplied by the libxml2 library to manipulate XML files.
 %setup -q
 
 %build
+cp %{SOURCE1001} .
 autoreconf
 %configure
 make 
@@ -75,11 +77,13 @@ rm -fr %{buildroot}%{_datadir}/doc/libxml2-python-2.7.8
 %postun -p /sbin/ldconfig
 
 %files
+%manifest libxml2.manifest
 %{_libdir}/lib*.so.*
 %{_bindir}/xmllint
 %{_bindir}/xmlcatalog
 
 %files devel
+%manifest libxml2.manifest
 %{_libdir}/lib*.so
 #needed to build python
 %{_libdir}/*.sh
@@ -89,5 +93,6 @@ rm -fr %{buildroot}%{_datadir}/doc/libxml2-python-2.7.8
 %{_libdir}/pkgconfig/libxml-2.0.pc
 
 %files python
+%manifest libxml2.manifest
 %{python_sitelib}/drv_libxml2*
 %{python_sitelib}/libxml2*
