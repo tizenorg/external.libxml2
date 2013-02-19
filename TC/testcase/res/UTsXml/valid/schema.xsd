@@ -1,0 +1,73 @@
+<xsd:schema  xmlns:xsd="http://www.w3.org/2001/XMLSchema"  >  
+ <xsd:element  name="track"  type="xsd:string"/>  
+ <xsd:element  name="title"  type="xsd:string"/>  
+ <xsd:element  name="name"  type="xsd:string"/>  
+ <xsd:element  name="email"  type="xsd:string"/>  
+ <xsd:element  name="description"  type="xsd:string"/>  
+ <xsd:element  name="link"  type="xsd:string"/>  
+ <xsd:element  name="speaker">  
+   <xsd:complexType>  
+     <xsd:sequence>  
+       <xsd:element  ref="name"/>  
+       <xsd:element  ref="email"/>  
+       <xsd:element  ref="description"/>  
+       <xsd:element  ref="link"/>  
+     </xsd:sequence>  
+   </xsd:complexType>  
+ </xsd:element>  
+ <xsd:element  name="dateTime"  type="xsd:string"/>  
+ <xsd:element  name="duration"  type="xsd:string"/>  
+ <xsd:element  name="scheduledTime">  
+   <xsd:complexType>  
+     <xsd:sequence>  
+       <xsd:element  ref="dateTime"/>  
+       <xsd:element  ref="duration"/>  
+     </xsd:sequence>  
+   </xsd:complexType>  
+ </xsd:element>  
+ <xsd:element  name="room"  type="xsd:string"/>  
+ <xsd:element  name="building"  type="xsd:string"/>  
+ <xsd:element  name="address">  
+   <xsd:complexType>  
+     <xsd:sequence>  
+       <xsd:element  ref="room"/>  
+       <xsd:element  ref="building"/>  
+     </xsd:sequence>  
+   </xsd:complexType>  
+ </xsd:element>  
+ <xsd:element  name="event">  
+   <xsd:complexType>  
+     <xsd:sequence>  
+       <xsd:element  ref="title"/>  
+       <xsd:element  ref="description"/>  
+       <xsd:sequence  minOccurs="0"  maxOccurs="1">  
+         <xsd:element  ref="speaker"/>  
+       </xsd:sequence>  
+       <xsd:element  ref="scheduledTime"/>  
+       <xsd:element  ref="address"/>  
+     </xsd:sequence>  
+     <xsd:attribute  name="id"  type="xsd:ID"  use="required"/>  
+   </xsd:complexType>  
+ </xsd:element>  
+ <xsd:element  name="schedule">  
+   <xsd:complexType>  
+     <xsd:sequence>  
+       <xsd:element  ref="track"/>  
+       <xsd:element  ref="description"/>  
+       <xsd:sequence  maxOccurs="unbounded">  
+         <xsd:element  ref="event"/>  
+       </xsd:sequence>  
+     </xsd:sequence>  
+     <xsd:attribute  name="id"  type="xsd:ID"  use="required"/>  
+   </xsd:complexType>  
+ </xsd:element>  
+ <xsd:element  name="datebook">  
+   <xsd:complexType>  
+     <xsd:sequence>  
+       <xsd:element  ref="schedule"/>  
+     </xsd:sequence>  
+     <xsd:attribute  name="id"  type="xsd:ID"  use="required"/>  
+   </xsd:complexType>  
+ </xsd:element>  
+</xsd:schema>
+
