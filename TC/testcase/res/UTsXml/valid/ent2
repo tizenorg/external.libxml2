@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE EXAMPLE SYSTEM "example.dtd" [
+<!ENTITY xml "Extensible Markup Language">
+<!ENTITY title PUBLIC "-//MY-TITLE//FR" "title.xml">
+<!ENTITY image SYSTEM "img.gif" NDATA GIF>
+]>
+<foo:root xmlns:foo="http://www.w3.org/TR/html4/" >
+<foo:table>
+  <foo:tr>
+    <foo:td>Apples</foo:td>
+    <foo:td>Bananas</foo:td>
+  </foo:tr>
+</foo:table>
+
+<foo:table>
+  <foo:name>African Coffee Table</foo:name>
+  <foo:width>80</foo:width>
+  <foo:length>120</foo:length>
+</foo:table>
+</foo:root> 
+
+
