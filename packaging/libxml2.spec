@@ -80,6 +80,10 @@ rm -fr $RPM_BUILD_ROOT%{_datadir}/doc/libxml2-python-2.7.8
 
 %remove_docs
 
+# license
+mkdir -p %{buildroot}/usr/share/license
+cp COPYING %{buildroot}/usr/share/license/%{name}
+
 %post -p /sbin/ldconfig
 
 %postun -p /sbin/ldconfig
@@ -89,7 +93,7 @@ rm -fr $RPM_BUILD_ROOT%{_datadir}/doc/libxml2-python-2.7.8
 %{_libdir}/lib*.so.*
 %{_bindir}/xmllint
 %{_bindir}/xmlcatalog
-
+/usr/share/license/%{name}
 
 %files devel
 %defattr(-, root, root)
