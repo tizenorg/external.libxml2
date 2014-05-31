@@ -1,0 +1,29 @@
+<?xml version="1.0" standalone="no"?>
+
+<!DOCTYPE MEMO [
+<!ELEMENT MEMO     (TO,FROM,SUBJECT,BODY,SIGN)> 
+<!ATTLIST MEMO     importance   (HIGH|MEDIUM|LOW) "LOW">
+<!ELEMENT TO       (#PCDATA)>
+<!ELEMENT FROM     (#PCDATA)>
+<!ELEMENT SUBJECT  (#PCDATA)>
+<!ELEMENT BODY     (P+)>
+<!ELEMENT P        (#PCDATA)>
+<!ELEMENT SIGN     (#PCDATA)>
+<!ATTLIST SIGN     email         CDATA #REQUIRED> 
+]>
+
+<MEMO importance="HIGH">
+<TO>Tutorial Takers</TO>
+<FROM>Tutorial Writer</FROM>
+<SUBJECT>Your impressions</SUBJECT>
+<BODY>
+<P>Now that you are almost done the tutorial, you must be getting
+an idea of what XML is about. These emerging technologies sometimes 
+take time though before they catch on.</P>
+<P>Did you find the tutorial helpful? Which areas did you find
+confusing? How would you improve them?</P>
+</BODY>
+<SIGN email="rlander@pdbeam.uwaterloo.ca">Richard</SIGN> 
+</MEMO>
+
+
