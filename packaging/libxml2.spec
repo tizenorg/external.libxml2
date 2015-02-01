@@ -5,6 +5,7 @@ Release: 8.5.1
 License: MIT
 Group: System/Libraries
 Source: %{name}-%{version}.tar.gz
+Patch1: libxml2-python-site-packages64.patch
 BuildRequires: zlib-devel 
 BuildRequires: python-devel
 BuildRequires: python
@@ -60,11 +61,11 @@ at parse time or later once the document has been modified.
 
 %prep
 %setup -q
+%patch1 -p1
 
 %build
-autoreconf
-%configure
-make #%{_smp_mflags}
+%reconfigure --with-python=/usr
+make %{_smp_mflags}
 
 %install
 rm -fr %{buildroot}
@@ -93,6 +94,7 @@ rm -fr $RPM_BUILD_ROOT%{_datadir}/doc/libxml2-python-2.7.8
 %{_bindir}/xmllint
 %{_bindir}/xmlcatalog
 /usr/share/license/%{name}
+
 
 %files devel
 %defattr(-, root, root)
