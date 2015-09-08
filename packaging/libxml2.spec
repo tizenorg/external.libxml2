@@ -1,10 +1,11 @@
 Summary: Library providing XML and HTML support
 Name: libxml2
 Version: 2.7.8
-Release: 8.5
+Release: 8.5.1
 License: MIT
 Group: System/Libraries
-Source: ftp://xmlsoft.org/libxml2/libxml2-%{version}.tar.gz
+Source: %{name}-%{version}.tar.gz
+Patch1: libxml2-python-site-packages64.patch
 BuildRequires: zlib-devel 
 BuildRequires: python-devel
 BuildRequires: python
@@ -42,16 +43,34 @@ to select subnodes or ranges. A flexible Input/Output mechanism is
 available, with existing HTTP and FTP modules and combined to an
 URI library.
 
+%package python
+Summary: Python bindings for the libxml2 library
+Group: Development/Libraries
+Requires: libxml2 = %{version}
+Requires: %{_libdir}/python%{python_version}
+
+%description python
+The libxml2-python package contains a module that permits applications
+written in the Python programming language to use the interface
+supplied by the libxml2 library to manipulate XML files.
+
+This library allows to manipulate XML files. It includes support
+to read, modify and write XML and HTML files. There is DTDs support
+this includes parsing and validation even with complex DTDs, either
+at parse time or later once the document has been modified.
+
 %prep
 %setup -q
+%patch1 -p1
 
 %build
-autoreconf
-%configure
-make #%{_smp_mflags}
+%reconfigure --with-python=/usr
+make %{_smp_mflags}
 
 %install
 rm -fr %{buildroot}
+mkdir -p %{buildroot}/usr/share/license
+cp COPYING %{buildroot}/usr/share/license/%{name}
 
 %make_install
 
@@ -69,12 +88,12 @@ rm -fr $RPM_BUILD_ROOT%{_datadir}/doc/libxml2-python-2.7.8
 %postun -p /sbin/ldconfig
 
 %files
+%manifest libxml2.manifest
 %defattr(-, root, root)
 %{_libdir}/lib*.so.*
 %{_bindir}/xmllint
 %{_bindir}/xmlcatalog
-%{python_sitelib}/drv_libxml2*
-%{python_sitelib}/libxml2*
+/usr/share/license/%{name}
 
 
 %files devel
@@ -86,3 +105,8 @@ rm -fr $RPM_BUILD_ROOT%{_datadir}/doc/libxml2-python-2.7.8
 %{_bindir}/xml2-config
 %{_datadir}/aclocal/libxml.m4
 %{_libdir}/pkgconfig/libxml-2.0.pc
+
+%files python
+%defattr(-, root, root)
+%{python_sitelib}/drv_libxml2*
+%{python_sitelib}/libxml2*

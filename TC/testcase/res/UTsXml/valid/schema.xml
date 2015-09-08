@@ -1,0 +1,54 @@
+<datebook id="datebook-schema-00011520" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="c:\Publishing\Sonic\datebook1.xsd"> 
+   <schedule id="datebook-schema-00011521">
+   <track>Technical</track>
+   <description>This describes the technical track of the seminar.</description>
+   <event id="datebook-schema-00011522">
+      <title>Introducing XML</title>
+      <description>This is the introductory session for the seminar.</description>
+      <speaker> 
+         <name>Kurt Cagle</name>
+         <email>kurt@kurtcagle.net</email>
+         <description>Kurt Cagle is an author specializing in XML technologies</description> 
+         <link>http://www.metaphoricalweb.com</link>
+      </speaker>
+      <scheduledTime>
+      <dateTime>2003-01-20T09:00:00</dateTime>
+         <duration>PT3H</duration>
+      </scheduledTime>
+      <address>
+         <room>Ranier (Room 25)</room>
+         <building>C</building>
+      </address>
+   </event>
+   <event id="datebook-schema-00011523">
+      <title>Lunch</title>
+      <description>This is a working lunch.</description>
+      <scheduledTime>
+      <dateTime>2003-01-20T12:00:00</dateTime>
+         <duration>PT1H</duration>
+      </scheduledTime>
+      <address>
+         <room>Main Ballroom</room>
+         <building>C</building>
+      </address>
+   </event>
+   <event id="datebook-schema-00011524">
+      <title>Working with XSLT</title>
+      <description>This session deals with XSLT</description>
+      <speaker>
+         <name>Ellison Dean</name>
+         <email>Ellison@sonic.com</email>
+         <description>Ellison is an author specializing in XSLT technologies</description>
+         <link>http://www.stylusstudio.com</link>
+      </speaker>
+      <scheduledTime>
+      <dateTime>2003-01-20T13:00:00</dateTime>
+         <duration>PT3H</duration>
+      </scheduledTime>
+      <address>
+         <room>Ranier (Room 25)</room>
+         <building>C</building>
+      </address>
+   </event>
+   </schedule>
+</datebook>
