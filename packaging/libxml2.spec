@@ -1,11 +1,11 @@
 Summary: Library providing XML and HTML support
 Name: libxml2
-Version: 2.7.8
-Release: 8.5.1
+Version: 2.9.2
+Release: 1
 License: MIT
 Group: System/Libraries
 Source: %{name}-%{version}.tar.gz
-Patch1: libxml2-python-site-packages64.patch
+#Patch1: libxml2-python-site-packages64.patch
 BuildRequires: zlib-devel 
 BuildRequires: python-devel
 BuildRequires: python
@@ -61,7 +61,7 @@ at parse time or later once the document has been modified.
 
 %prep
 %setup -q
-%patch1 -p1
+#%patch1 -p1
 
 %build
 %reconfigure --with-python=/usr
@@ -105,6 +105,7 @@ rm -fr $RPM_BUILD_ROOT%{_datadir}/doc/libxml2-python-2.7.8
 %{_bindir}/xml2-config
 %{_datadir}/aclocal/libxml.m4
 %{_libdir}/pkgconfig/libxml-2.0.pc
+%{_libdir}/cmake/libxml2/libxml2-config.cmake
 
 %files python
 %defattr(-, root, root)
